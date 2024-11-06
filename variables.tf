@@ -14,16 +14,21 @@ variable "vcn_cidr" {
   default     = "10.0.0.0/16"
 }
 
-variable "public_subnet_cidr" {
-  description = "CIDR block for the public subnet."
+variable "lb_public_subnet_cidr" {
+  description = "CIDR block for the LB public subnet."
   type        = string
   default     = "10.0.1.0/24"
+}
+variable "k8s_api_public_subnet_cidr" {
+  description = "CIDR block for the K8s API public subnet."
+  type        = string
+  default     = "10.0.2.0/24"
 }
 
 variable "private_subnet_cidr" {
   description = "CIDR block for the private subnet."
   type        = string
-  default     = "10.0.2.0/24"
+  default     = "10.0.3.0/24"
 }
 
 variable "all_services_id" {
