@@ -1,5 +1,5 @@
 output "vcn_id" {
-  value = oci_core_vcn.vcn.id
+  value = oci_core_vcn.dev-vcn.id
 }
 
 output "lb_public_subnet" {

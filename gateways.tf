@@ -1,19 +1,19 @@
 resource "oci_core_internet_gateway" "internet_gateway" {
   compartment_id = var.compartment_ocid
-  vcn_id         = oci_core_vcn.vcn.id
+  vcn_id         = oci_core_vcn.dev-vcn.id
   display_name   = "dev-internet-gateway"
   enabled        = true
 }
 
 resource "oci_core_nat_gateway" "nat_gateway" {
   compartment_id = var.compartment_ocid
-  vcn_id         = oci_core_vcn.vcn.id
+  vcn_id         = oci_core_vcn.dev-vcn.id
   display_name   = "dev-nat-gateway"
 }
 
 resource "oci_core_service_gateway" "service_gateway" {
   compartment_id = var.compartment_ocid
-  vcn_id         = oci_core_vcn.vcn.id
+  vcn_id         = oci_core_vcn.dev-vcn.id
   display_name = "dev-service-gateway"
   services {
     service_id = var.all_services_id
@@ -22,7 +22,7 @@ resource "oci_core_service_gateway" "service_gateway" {
 
 resource "oci_core_route_table" "public_route_table" {
   compartment_id = var.compartment_ocid
-  vcn_id         = oci_core_vcn.vcn.id
+  vcn_id         = oci_core_vcn.dev-vcn.id
   display_name   = "public-route-table"
 
   route_rules {
@@ -33,7 +33,7 @@ resource "oci_core_route_table" "public_route_table" {
 
 resource "oci_core_route_table" "private_route_table" {
   compartment_id = var.compartment_ocid
-  vcn_id         = oci_core_vcn.vcn.id
+  vcn_id         = oci_core_vcn.dev-vcn.id
   display_name   = "private-route-table"
 
   route_rules {
